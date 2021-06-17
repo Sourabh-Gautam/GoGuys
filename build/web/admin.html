@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="css/admin/style.css">
+        <link rel="stylesheet" href="css/admin/manage.css">
+        <link rel="stylesheet" href="css/admin/dynamic.css">
+        <link rel="stylesheet" href="css/admin/manageproduct.css">
+
+        <title>Admin Panal</title>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo-details">
+                <i class='bx bxs-game'></i>
+                <span class="logo-name">
+                    Goguys
+                </span>
+            </div>
+            <ul class="nav-links">
+                <li id="dashboard">
+                    <a href="#">
+                        <i class='bx bx-grid-alt' ></i>
+                        <span class="link-name dashboard">Dashboard</span>
+                    </a>
+                </li>
+                <li id="product">
+                    <a href="#">
+                        <i class='bx bx-box'></i>
+                        <span class="link-name product">Product</span>
+                    </a>
+                </li>
+                <li id="order">
+                    <a href="#">
+                        <i class='bx bx-list-ul'></i>
+                        <span class="link-name order">Order</span>
+                    </a>
+                </li>
+                <li id="manage-shop">
+                    <a href="#">
+                        <i class='bx bx-pie-chart'></i>
+                        <span class="link-name manage-shop">Manage Shop</span>
+                    </a>
+                </li>
+                <li id="total-order">
+                    <a href="#">
+                        <i class='bx bx-book-alt' ></i>
+                        <span class="link-name total-order">Total Order</span>
+                    </a>
+                </li>
+                <li id="team">
+                    <a href="#">
+                        <i class='bx bx-user' ></i>
+                        <span class="link-name team">Team</span>
+                    </a>
+                </li>
+                <li id="messages">
+                    <a href="#">
+                        <i class='bx bx-message' ></i>
+                        <span class="link-name messages">Messages</span>
+                    </a>
+                </li>
+                <li id="favourites">
+                    <a href="#">
+                        <i class='bx bx-heart' ></i>
+                        <span class="link-name favourites">Favourites</span>
+                    </a>
+                </li>
+                <li id="settings">
+                    <a href="#">
+                        <i class='bx bx-cog' ></i>
+                        <span class="link-name settings">Settings</span>
+                    </a>
+                </li>
+                <li id="logout">
+                    <a href="#">
+                        <i class='bx bx-log-out-circle' ></i>
+                        <span class="link-name logout">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Header and Home Content -->
+
+        <section class="home-section">
+
+            <!-- Header -->
+
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu three-bar'></i>
+                    <span class="dashboard">
+                        Dashboard
+                    </span>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="search...">
+                    <i class='bx bx-search'></i>
+
+                </div>
+                <div class="profile-details">
+                    <img src="image.jpg" alt="profile">
+                    <span class="admin-name">
+                        Rohit KhaliBali
+                    </span>
+                    <i class='bx bxs-chevron-down' ></i>
+                </div>
+            </nav>
+
+            <!-- Header End -->
+
+            <!-- Dashboard content -->
+
+            <div class="dashboard">
+                <div class="overview-boxes">
+                    <div class="box">
+
+                    </div>
+                    <div class="box">
+
+                    </div>
+                    <div class="box">
+
+                    </div>
+                    <div class="box">
+
+                    </div>                
+                </div>
+            </div>
+
+            <!-- Dashboard content End-->
+
+            <!-- Manage Shop Content -->
+
+            <div class="manage-shop display-none">
+                <div class="overview-boxes">
+                    <div class="add-shop-box box">
+                        <div class="shop-title">
+                            Add Shop
+                        </div>
+                        <input type="text" name="shop-name" class="shop-name" placeholder="enter shop name">
+                        <input type="text" name="shop-name" class="shop-name enter-key" placeholder="enter icon html">
+                        <div class="ext-links">
+                            <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank">Get Icons FA</a>
+                            <a href="https://boxicons.com/" target="_blank">Get Icons BI</a>
+                        </div>
+                        <button class="add-shop-btn" onclick="manageShop(this, 'add')">Add</button>
+                    </div>
+                    <div class="remove-shop-box box">
+                        <div class="shop-title">
+                            Remove Shop
+                        </div>
+                        <select name="shopname" id="shops">
+
+                        </select>
+                        <button onclick="manageShop(this, 'remove')">Remove</button>
+                    </div>
+                    <div class="update-shop-box box">
+                        <div class="shop-title">
+                            Update Shop
+                        </div>
+                        <select name="shopname" id="shops">
+
+                        </select>
+                        <input type="text" name="shop-name" class="shop-name" placeholder="enter new shop name">
+                        <input type="text" name="shop-name" class="shop-name enter-key" placeholder="enter icon html">
+                        <div class="ext-links">
+                            <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank">Get Icons FA</a>
+                            <a href="https://boxicons.com/" target="_blank">Get Icons BI</a>
+                        </div>
+                        <button onclick="manageShop(this, 'update')">Update</button>
+                    </div>
+                    <div class="add-shopc-box box">
+                        <div class="shop-title">
+                            Add Shop Category
+                        </div>
+                        <select name="shopname" id="shops">
+
+                        </select>
+                        <input type="text" name="shop-name" class="shop-name enter-key" placeholder="enter category name">
+                        <button onclick="manageShopCategory(this, 'add')">Add</button>
+                    </div>
+                    <div class="remove-shopc-box box">
+                        <div class="shop-title">
+                            Remove Shop Category
+                        </div>
+                        <select name="shopname" id="shops">
+
+                        </select>
+                        <select name="categoryname" id="categories">
+                        </select>
+                        <button onclick="manageShopCategory(this, 'remove')">Remove</button>
+                    </div>
+                    <div class="update-shopc-box box">
+                        <div class="shop-title">
+                            Update Shop Category
+                        </div>
+                        <select name="shopname" id="shops">
+
+                        </select>
+                        <select name="categoryname" id="categories">
+                        </select>
+                        <input type="text" name="shop-name" class="shop-name enter-key" placeholder="enter new category name">
+                        <button onclick="manageShopCategory(this, 'update')">Update</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Shop Content End -->
+
+            <!--Manage Product  content start-->
+
+            <div class= "product display-none">
+
+                <div class="manage-product-section">
+                    <div class="manage-action">
+                        <button name="shopname" id="add-product" class="active">
+                            Add Product
+                        </button>
+                        <button name="shopname" id="update-product">
+                            Update Product
+                        </button>
+                        <button name="shopname" id="remove-product">
+                            Remove Product
+                        </button>
+                    </div>
+                </div>
+
+                <!--Add Product Handler Form-->
+                <form id="add-product-form" enctype="multipart/form-data">
+                    <div class="action-handler add-product">
+                        <div class="product-details">
+                            <div class="not-description">
+                                <table>
+                                    <tr><th>Name</th><td><input type="text"  name="pname" placeholder="product name"></td></tr>
+                                    <tr><th>Price</th><td><input type="number" class="price" name="price" placeholder="price"></td></tr>
+                                    <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" placeholder="quantity"></td></tr>
+                                    <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" placeholder="short description"></td></tr>
+                                    <tr><th>Unit</th><td><select name="unit" class="unit">
+                                                <option value="kg">kg</option>
+                                                <option value="gm">gm</option>
+                                                <option value="ltr">ltr</option>
+                                                <option value="ml">ml</option>
+                                                <option value="piece">piece</option>
+                                            </select></td></tr>
+                                    <tr><th>Shop</th><td><select name="shops" class="shops">
+
+                                            </select></td></tr>
+                                    <tr><th>Category</th><td><select name="category" class="category">
+
+                                            </select></td></tr>
+                                    <tr><th>Type</th><td><select name="type" class="type">
+                                                <option value="Pack">Pack</option>
+                                                <option value="Open">Open</option>
+                                            </select></td></tr>
+                                </table>
+                            </div>
+                            <div class="description">
+                                <label>Full Description</label>
+                                <textarea name="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="product-images">
+                            <div class="all-img-container">
+                                <div class="not-img">
+                                    <input type="file" class="img-file img1" name="img-1" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img2" name="img-2" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img3" name="img-3" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img4" name="img-4" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img5" name="img-5" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="product-action-button">Add Product</button>
+                    </div>
+                </form>
+
+                <!--Update Product Handler Form-->
+
+                <form id="update-product-form" enctype="multipart/form-data">
+                    <div class="action-handler update-product display-none">
+                        <div class="search-up-div">
+                            <input type="text" name=" search-up" class="search-up" id="search-up" placeholder="type something..." autocomplete="off">
+                            <button class="gp">Get</button>
+                        </div>
+                        <ul class="search-up-result">
+
+                        </ul>
+                        <div class="product-details">
+                            <div class="not-description">
+                                <table>
+                                    <tr><th>Name</th><td><input type="text"  name="pname" placeholder="product name"></td></tr>
+                                    <tr><th>Price</th><td><input type="number" class="price" name="price" placeholder="price"></td></tr>
+                                    <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" placeholder="quantity"></td></tr>
+                                    <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" placeholder="short description"></td></tr>
+                                    <tr><th>Unit</th><td><select name="unit" class="unit">
+                                                <option value="kg">kg</option>
+                                                <option value="gm">gm</option>
+                                                <option value="ltr">ltr</option>
+                                                <option value="ml">ml</option>
+                                                <option value="piece">piece</option>
+                                            </select></td></tr>
+                                    <tr><th>Shop</th><td><select name="shops" class="shops">
+
+                                            </select></td></tr>
+                                    <tr><th>Category</th><td><select name="category" class="category">
+
+                                            </select></td></tr>
+                                    <tr><th>Type</th><td><select name="type" class="type">
+                                                <option value="Pack">Pack</option>
+                                                <option value="Open">Open</option>
+                                            </select></td></tr>
+                                </table>
+                            </div>
+                            <div class="description">
+                                <label>Full Description</label>
+                                <textarea name="full-description"></textarea>
+                            </div>
+                        </div>
+                        <div class="product-images">
+                            <div class="all-img-container">
+                                <div class="not-img">
+                                    <input type="file" class="img-file img1" name="img-1" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img2" name="img-2" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img3" name="img-3" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img4" name="img-4" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+
+                                </div>
+                                <div class="not-img">
+                                    <input type="file" class="img-file img5" name="img-5" accept="image/*">
+                                    <i class='bx bx-plus'></i>
+
+                                </div>
+                            </div>
+                        </div>
+                        <button class="product-action-button">Update Product</button>
+                    </div>
+                </form>
+
+
+                <!--Remove Product Handler Form-->
+                <form id="remove-product-form" enctype="multipart/form-data">
+                    <div class="action-handler remove-product display-none">
+                        <div class="search-p-div">
+                            <input type="text" name=" search-p" class="search-p" id="search-p" placeholder="type something..." autocomplete="off">
+                            <ul class="search-result">
+
+                            </ul>
+                            <label class="product-counter">Total products <Strong></Strong></label>
+                        </div>
+
+                        <div class="remove-product-box box">
+                            <div class="shop-title">
+                                Remove Product
+                            </div>
+                            <select name="shopname" id="product-shops">
+
+                            </select>
+                            <select name="categoryname" id="product-categories">
+
+                            </select>
+                            <strong> <label for="products-item">Enter product name</label></strong>
+                            <select id="products-dropdown">
+
+                            </select>
+                            <button id="remove-product-btn">Remove</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--Manage Product  content end-->
+
+        </section>
+        <script src="js/admin/app.js"></script>
+        <script src="js/admin/manage.js"></script>
+        <script src="js/admin/manageproduct.js"></script>
+    </body>
+</html>

@@ -1,0 +1,382 @@
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
+
+        <link href="https://fonts.gstatic.com">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+        <link rel="stylesheet" href="css/main/style.css">
+        <link rel="stylesheet" href="css/main/dynamic.css">
+        <link rel="stylesheet" href="css/main/loginstyle.css">
+        <link rel="stylesheet" href="css/main/registerstyle.css">
+        <link rel="stylesheet" href="css/main/productcard.css">
+        <link rel="stylesheet" href="css/main/cartsection.css">        
+        <link rel="stylesheet" href="css/main/profilestyle.css">        
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Goguys</title>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header Section -->
+            <div class="header middle-alignment">
+                <div class="logo-and-burger middle-alignment">
+                    <i class="fas fa-bars burger middle-alignment"></i>
+                    <div class="logo">
+                        <span>Go</span>Guys
+                    </div>
+                </div>
+                <div class="search middle-alignment">
+                    <input type="text" placeholder="search items...">
+                    <i class="fas fa-search middle-alignment"></i>
+                </div>
+                <div class="login-register middle-alignment">
+                    <div class="cart middle-alignment">
+                        <i class='bx bx-cart'></i>
+                    </div>
+                    <div class="login-register-dp middle-alignment">
+                        <span class="login-register-text">Login | Register</span>
+                        <span class="dp middle-alignment"><i class="fas fa-user-circle"></i></span>
+                    </div>
+                </div>                    
+            </div>
+            
+            <!-- Shop Section -->
+            <div id="shop-nav" class="shop-nav">
+                <ul id="nav-list" class="nav-list">
+<!--                    <li id="grocery" class="active-shop" onclick="grocery()"><i class="fas fa-shopping-cart"></i><span>Grocery</span></li>
+                    <li id="cosmetics" onclick="cosmetics()"><i class="fab fa-meetup"></i><span>Cosmetics</span></li>
+                    <li id="stationery" onclick="stationery()"><i class="fas fa-book"></i><span>Stationery</span></li>
+                    <li  id="fruits"onclick="fruits()"><i class="fab fa-raspberry-pi"></i><span>Fruits</span></li>
+                    <li onclick="vegetables()"><i class="fas fa-carrot"></i><span>Vegetables</span></li>-->
+                </ul>
+            </div>
+
+            <!-- Shop Filters -->
+
+            <div id="shop-filters" class="shop-filters middle-alignment">
+                <i class="fas fa-caret-left left-arrow middle-alignment"></i>
+                    <ul id="filters"  class="filters">
+<!--                        <li class="active-shop">All</li>
+                        <li>Atta</li>
+                        <li>Oil</li>
+                        <li>Rice</li>
+                        <li>Daal</li>
+                        <li>Washing Agents</li>
+                        <li>Namkin</li>
+                        <li>Biscuits</li>
+                        <li>Chips</li>
+                        <li>Cake</li>
+                        <li>Toffee</li>
+                        <li>Dry Fruits</li>
+                        <li>Cold Drinks</li>
+                        <li>Chocolate</li>
+                        <li>Masale</li>
+                        <li>Eggs</li>
+                        <li>Other</li>-->
+                    </ul>
+                <i class="fas fa-caret-right right-arrow middle-alignment"></i>
+            </div>
+
+            <!-- Login and registration page container -->
+
+            <div class="login-registration-page-container middle-alignment display-none">
+
+                <!-- LoginPage Section -->
+
+                <div id="loginpage-container" class="loginpage-container loginpage-container2">
+                    <div class="login-card login-card2">
+                        <i id="login-eye" class="fas fa-eye-slash see-password display-none"></i>
+                        <i class="far fa-times-circle remove-card"></i>
+                        <div class="company-logo company-logo2"><span>Go</span>Guys</div>
+                        <div class="input-fields input-fields2">
+                            <input type="text" placeholder="Username, phone or email" name="username"/>
+                            <input id="login-password" type="password" placeholder="Password" name="password"/>
+                            <button>Login</button>
+                            <div class="forget-pwd forget-pwd2">
+                                <a href="#" class="forget-pwd forget-pwd2">Forget password?</a>
+                            </div>
+                        </div>
+                        <div class="register register2">
+                            <span class="ask-register">Don't have an account? </span><a id="register-link" href="#">Register</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Section -->
+
+                <div id="registrationpage-container" class="loginpage-container display-none">
+                    <div id="registration-card" class="login-card login-card2">
+                    <i id="registration-eye" class="fas fa-eye-slash see-password display-none"></i>
+                    <i class="far fa-times-circle remove-card"></i>
+                    <div class="company-logo company-logo2"><span>Go</span>Guys</div>
+                    <div class="input-fields">
+                        <input type="text" placeholder="Full name" name="fullname"/>
+                        <input id="registration-password" type="password" placeholder="Create password" name="password" />
+                        <input type="text" placeholder="Phone number" name="phonenumber"/>
+                        <input type="email" placeholder="Email (optional)" name="email"/>
+                        <button>Register</button>
+                        <div id="t-and-c" class="forget-pwd">
+                        <span>By signing up, you agree to our </span> 
+                        <a href="#" id="t-and-c" class="forget-pwd">Terms ,Data Policy and Cookies Policy.</a>
+                        </div>
+                    </div>
+                    <div class="register register2">
+                        <span class="ask-register">Have an account? </span><a id="login-link" href="#">Log in</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card  -->
+
+            <span class="ts tooltip-arrow"></span>
+            <span class="ts tooltip"></span>
+            
+            <div id="product-card" class="product-card">
+                <div class="card">
+                    <div class="item-details">
+                        <span class="price">
+                            $ 150
+                        </span>
+                        <p class="description">1 sealed bottle price</p>
+                    </div>
+                    <div class="qbuy-and-acart">
+                        <i class='bx bxs-paper-plane qbuy'></i>
+                        <i class='bx bx-cart acart'></i>
+                    </div>
+                    <div class="img-container">
+                        <img src="images/doublehiran.png" alt="">
+                    </div>
+                    <div class="card-name">Double Hiran Mustard Oil ( 1 kg ) Soruabh</div>
+                </div>
+        </div>
+
+        <!-- Cart  Section-->
+        
+        <div id="cart-section" class="cart-section">
+            <div class="cart-items-details">
+                <div class="heading">
+                    Order Details
+                </div>
+                <div class="details">
+                    <div class="items-in-cart">
+                        <span class="key">Items</span>
+                        <span class="value">13</span>
+                    </div>
+                    <div class="price">
+                        <span class="key">Price</span>
+                        <span class="value">&#8377;300</span>
+                    </div>
+                    <div class="discount">
+                        <span class="key">Discounts</span>
+                        <span class="value">- &#8377;110</span>
+                    </div>
+                    <div class="d-charge">
+                        <span class="key">Delivery Charges</span>
+                        <span class="value">Free</span>
+                    </div>
+                </div>
+                <div class="order-now">
+                    <div class="t-amt">
+                        <strong class="key">Total Amount :</strong>
+                        <strong class="value">&#8377;190</strong>
+                    </div>
+                    <button>Order Now</button>
+                </div>
+            </div>
+            <div class="cart-items-container">
+                <div class="heading">
+                    My CArt<i class='bx bxs-chevrons-up return-to-top display-none'></i>
+                </div>
+                <div class="cart-items">
+                    <div class="image-container">
+                        <img src="images/doublehiran.png" alt="double hiran">
+                    </div>
+                    <div class="item-desc">
+                        <ul class="desc">
+                            <li>Double Hiran Mustard oil</li>
+                            <li>1 kg bottle</li>
+                            <li>Open item</li>
+                            <li> <span class="pad">&#8377;200</span><span class="pbd">&#8377;400</span>  <span class="dt-p"> 10% off</span></li>
+    
+                        </ul>
+                    </div>
+                    <div class="modify-item">
+                        <div class="weight">
+                            <span class="less"><i class='bx bx-minus-circle'></i></span>
+                            <input type="text" class="qty" value="1" name="qty" maxlength="2">
+                            <span class="more"><i class='bx bx-plus-circle' ></i></span>
+                        </div>
+                        <select name="unit" id="unit" class="unit">
+                            <option value="kg">kg</option>
+                            <option value="gm">gm</option>
+                            <option value="ltr">ltr</option>
+                            <option value="ml">ml</option>
+                            <option value="piece">piece</option>
+                        </select>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <div class="image-container">
+                        <img src="images/doublehiran.png" alt="double hiran">
+                    </div>
+                    <div class="item-desc">
+                        <ul class="desc">
+                            <li>Double Hiran Mustard oil</li>
+                            <li>1 kg bottle</li>
+                            <li>Open item</li>
+                            <li> <span class="pad">&#8377;200</span><span class="pbd">&#8377;400</span>  <span class="dt-p"> 10% off</span></li>
+    
+                        </ul>
+                    </div>
+                    <div class="modify-item">
+                        <div class="weight">
+                            <span class="less"><i class='bx bx-minus-circle'></i></span>
+                            <input type="text" class="qty" value="1" name="qty" maxlength="2">
+                            <span class="more"><i class='bx bx-plus-circle' ></i></span>
+                        </div>
+                        <select name="unit" id="unit" class="unit">
+                            <option value="kg">kg</option>
+                            <option value="gm">gm</option>
+                            <option value="ltr">ltr</option>
+                            <option value="ml">ml</option>
+                            <option value="piece">piece</option>
+                        </select>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <div class="image-container">
+                        <img src="images/doublehiran.png" alt="double hiran">
+                    </div>
+                    <div class="item-desc">
+                        <ul class="desc">
+                            <li>Double Hiran Mustard oil</li>
+                            <li>1 kg bottle</li>
+                            <li>Open item</li>
+                            <li> <span class="pad">&#8377;200</span><span class="pbd">&#8377;400</span>  <span class="dt-p"> 10% off</span></li>
+    
+                        </ul>
+                    </div>
+                    <div class="modify-item">
+                        <div class="weight">
+                            <span class="less"><i class='bx bx-minus-circle'></i></span>
+                            <input type="text" class="qty" value="1" name="qty" maxlength="2">
+                            <span class="more"><i class='bx bx-plus-circle' ></i></span>
+                        </div>
+                        <select name="unit" id="unit" class="unit">
+                            <option value="kg">kg</option>
+                            <option value="gm">gm</option>
+                            <option value="ltr">ltr</option>
+                            <option value="ml">ml</option>
+                            <option value="piece">piece</option>
+                        </select>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <div class="image-container">
+                        <img src="images/doublehiran.png" alt="double hiran">
+                    </div>
+                    <div class="item-desc">
+                        <ul class="desc">
+                            <li>Double Hiran Mustard oil</li>
+                            <li>1 kg bottle</li>
+                            <li>Open item</li>
+                            <li> <span class="pad">&#8377;200</span><span class="pbd">&#8377;400</span>  <span class="dt-p"> 10% off</span></li>
+    
+                        </ul>
+                    </div>
+                    <div class="modify-item">
+                        <div class="weight">
+                            <span class="less"><i class='bx bx-minus-circle'></i></span>
+                            <input type="text" class="qty" value="1" name="qty" maxlength="2">
+                            <span class="more"><i class='bx bx-plus-circle' ></i></span>
+                        </div>
+                        <select name="unit" id="unit" class="unit">
+                            <option value="kg">kg</option>
+                            <option value="gm">gm</option>
+                            <option value="ltr">ltr</option>
+                            <option value="ml">ml</option>
+                            <option value="piece">piece</option>
+                        </select>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <div class="image-container">
+                        <img src="images/doublehiran.png" alt="double hiran">
+                    </div>
+                    <div class="item-desc">
+                        <ul class="desc">
+                            <li>Double Hiran Mustard oil</li>
+                            <li>1 kg bottle</li>
+                            <li>Open item</li>
+                            <li> <span class="pad">&#8377;200</span><span class="pbd">&#8377;400</span>  <span class="dt-p"> 10% off</span></li>
+    
+                        </ul>
+                    </div>
+                    <div class="modify-item">
+                        <div class="weight">
+                            <span class="less"><i class='bx bx-minus-circle'></i></span>
+                            <input type="text" class="qty" value="1" name="qty" maxlength="2">
+                            <span class="more"><i class='bx bx-plus-circle' ></i></span>
+                        </div>
+                        <select name="unit" id="unit" class="unit">
+                            <option value="kg">kg</option>
+                            <option value="gm">gm</option>
+                            <option value="ltr">ltr</option>
+                            <option value="ml">ml</option>
+                            <option value="piece">piece</option>
+                        </select>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <div class="image-container">
+                        <img src="images/doublehiran.png" alt="double hiran">
+                    </div>
+                    <div class="item-desc">
+                        <ul class="desc">
+                            <li>Double Hiran Mustard oil</li>
+                            <li>1 kg bottle</li>
+                            <li>Open item</li>
+                            <li> <span class="pad">&#8377;200</span><span class="pbd">&#8377;400</span>  <span class="dt-p"> 10% off</span></li>
+                        </ul>
+                    </div>
+                    <div class="modify-item">
+                        <div class="weight">
+                            <span class="less"><i class='bx bx-minus-circle'></i></span>
+                            <input type="text" class="qty" value="1" name="qty" maxlength="2">
+                            <span class="more"><i class='bx bx-plus-circle' ></i></span>
+                        </div>
+                        <select name="unit" id="unit" class="unit">
+                            <option value="kg">kg</option>
+                            <option value="gm">gm</option>
+                            <option value="ltr">ltr</option>
+                            <option value="ml">ml</option>
+                            <option value="piece">piece</option>
+                        </select>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/main/app.js"></script>
+        <script src="js/main/card.js"></script>
+        <script src="js/main/cart.js"></script>
+        <script src="js/main/readyajax.js"></script>
+        <script src="js/main/dynamic.js"></script>
+    </body>
+</html>

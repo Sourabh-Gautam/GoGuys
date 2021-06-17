@@ -1,0 +1,57 @@
+.box{
+    position: relative;
+    flex-direction: column;
+    padding: 20px;
+    height: 360px;
+}
+
+.box > * {
+    margin-bottom: 10px;
+}
+
+.box .shop-title {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.box input, .box select{
+    outline: none;
+    border: thin solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.box .ext-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.box a {
+    text-decoration: none;
+    color: rgb(134, 134, 235);
+    padding: 5px;
+    font-size: 14px;
+}
+
+.box button{
+    position: absolute;
+    bottom: 10px;
+    left: 37%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(216, 216, 216);
+    background: rgb(10,37,88);
+    font-size: 18px;
+    width: 100px;
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
+
+.box button:hover{
+    color: white;
+}

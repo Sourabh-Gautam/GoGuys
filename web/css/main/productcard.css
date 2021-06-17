@@ -1,0 +1,128 @@
+.product-card{
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    row-gap: 20px;
+    width: calc(100% - 170px);
+    height: calc(100% - 116px);
+    overflow-y: scroll;
+    top: 120px;
+    left: 170px;
+    padding: 10px;
+    transition: all 0.7s ease;
+}
+
+.product-card::-webkit-scrollbar{
+    width: 10px;
+}
+
+.product-card::-webkit-scrollbar-thumb{
+    background-color: rgb(196, 196, 196);
+    border-radius: 10px;
+}
+
+.product-card::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(160, 160, 160);
+}
+
+.ts{
+    position: fixed;
+    display: none;
+}
+
+.tooltip{
+    width: 75px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 7px;
+    font-size: 13px;
+    background-color: rgb(44, 44, 44);
+    color: rgb(219, 219, 219);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.tooltip-arrow{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    transform: rotate(136deg) skew(25deg,25deg);
+    background-color: rgb(44, 44, 44);
+    z-index: 10;
+}
+
+.product-card .card{
+    position: relative;
+    height: 350px;
+    background-color: rgb(248, 248, 248);
+    width: 250px;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.product-card .card .price{
+    font-size: 24px;
+    font-weight: 1000;
+    padding: 5px;
+}
+
+.product-card .card .description{
+    color: grey;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.product-card .card .qbuy-and-acart {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.product-card .card .qbuy-and-acart i{
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 0 3px 3px 0;
+    transition: all 0.5s ease;
+    border: thin rgba(211, 211, 211, 0.7) solid;
+    background-color: rgba(211, 211, 211, 0.4);
+    opacity: 0;
+    cursor: pointer;
+}
+
+.product-card .card:hover .qbuy-and-acart i{
+    opacity: 1;
+}
+
+.product-card .card .qbuy-and-acart i:hover{
+    background-color: rgba(211, 211, 211, 0.7);
+}
+
+.product-card .card .img-container{
+    padding: 10px;
+}
+
+.product-card .card .img-container img{
+    width: 100%;
+}
+
+.product-card .card .card-name{
+    padding: 0 3px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 1000;
+}
+
+/* Responsive CSS */
+
+/* @media (max-width : 1514px) {
+    .product-card .card{
+        margin-left: 57px;
+    }
+} */

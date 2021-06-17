@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+    overflow: hidden;
+}
+
+.container{
+    height: 100vh;
+    background-color: rgb(238, 238, 238);
+}
+
+/* Wildcard Alignment Center */
+
+.middle-alignment{
+    display: flex;
+    align-items: center;
+}
+
+/* Header Section CSS */
+
+.header{
+    position: fixed;
+    width: 100%;
+    height: 76px;
+    background-color: whitesmoke;
+    border-bottom: rgba(184, 184, 184, 0.5) thin solid;
+    padding: 10px;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.header .logo-and-burger i{
+    font-size: 20px;
+    min-width: 50px;
+    min-height: 50px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 25px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.header .logo-and-burger .logo{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(2, 73, 117);
+    cursor: pointer;
+}
+
+.header .logo-and-burger .logo span{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(221, 84, 114);
+}
+
+
+.header .search{
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.header .search input{
+    width: 60%;
+    height: 40px;
+    outline: none;
+    padding: 10px;
+    border-radius: 3px 0px 0px 3px;
+    font-size: 17px;
+    border: solid 2px lightgray;
+    border-right: none;
+}
+
+.header .search i{
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 0px 3px 3px 0px;
+    border: solid 2px lightgray;
+    border-left: none;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(38,151,255);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.header .search i:hover{
+    color: rgba(255, 255, 255, 1);
+}
+
+.header .login-register{
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding-right: 20px;
+    white-space: nowrap;
+}
+
+.header .login-register .login-register-dp{
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 25px;
+    border: thin rgba(211, 211, 211, 0.7) solid;
+    background-color: rgba(211, 211, 211, 0.4);
+    transition: all 0.5s ease;
+}
+
+.header .login-register .login-register-text{
+    font-weight: bolder;
+    margin-right: 5px;
+}
+
+.header .login-register .dp {
+    justify-content: center;
+    font-size: 29px;
+    height: 30px;
+    width: 30px;
+    border-radius: 25px;
+    color: gray;
+}
+
+.header .login-register .login-register-dp:hover{
+    background-color: rgba(211, 211, 211, 0.7);
+}
+
+.header .login-register .cart{
+    font-size: 30px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    border: thin rgba(211, 211, 211, 0.7) solid;
+    background-color: rgba(211, 211, 211, 0.4);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.header .login-register .cart:hover{
+    background-color: rgba(211, 211, 211, 0.7);
+}
+
+/* Shop Section CSS */
+
+.shop-nav{
+    z-index: 5;
+    position: fixed;
+    width: 170px;
+    height: 90vh;
+    overflow-x: hidden;
+    top: 76px;
+    transition: all 0.4s ease;
+    background-color: rgb(233,233,233);
+}
+
+.shop-nav .nav-list{
+    display: flex;
+    flex-direction: column;
+    height: 72%;
+    overflow-y: scroll;
+    width: 170px;
+    transition: all 0.3s ease-out;
+}
+
+.shop-nav .nav-list::-webkit-scrollbar{
+    display: none;
+}
+
+.shop-nav .nav-list li{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    font-size: 18px;
+    padding: 15px 10px;
+    margin-bottom: 18px;
+    transition: all 0.3s ease;
+    border-top: thin rgb(219, 219, 219) solid;
+    border-bottom: thin rgb(219, 219, 219) solid;
+    cursor: pointer;
+}
+
+div.shop-nav ul.nav-list li:hover{
+    background-color: rgb(219, 219, 219);
+}
+
+.shop-nav .nav-list li i{
+    font-size: 22px;
+    min-width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.shop-nav .nav-list li span{
+    transition: width 0.5s, height 0.5s;
+}
+
+/* Shop Filters */
+
+.shop-filters{
+    position: fixed;
+    user-select: none;
+    top: 76px;
+    left: 170px;
+    justify-content: space-evenly;
+    width: calc(100% - 170px);
+    transition: all 0.4s ease-out;
+    border-bottom: rgba(184, 184, 184, 0.5) thin solid;
+    background-color: white;
+    z-index: 2;
+}
+
+.shop-filters .filters{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    overflow-x: scroll;
+}
+
+.shop-filters .filters::-webkit-scrollbar{
+    display: none;
+}
+
+.shop-filters .filters li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    margin: 3px 10px;
+    font-size: 18px;
+    border: thin solid rgb(219, 219, 219);
+    border-radius: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.shop-filters .filters li:hover{
+    background-color: rgba(211, 211, 211, 0.3);
+}
+
+.shop-filters i{
+    justify-content: center;
+    height: 35px;
+    min-width: 35px;  
+    border-radius: 50%;
+    margin: 3px 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Responsive CSS */
+
+@media (max-width : 1206px) {
+    div.product-card{
+        grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    }
+    
+    div.product-card .card{
+        width: 235px;
+        height: 335px;
+    }
+}
+
+@media (max-width : 1000px){
+    .shop-nav{
+        width: 70px;
+    }
+
+    .shop-filters{
+        left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .shop-nav .nav-list{
+        width: 70px;
+        padding: 15px 0;
+    }
+
+    .shop-nav .nav-list li{
+        padding: 3px 0;
+        margin-bottom: 25px;
+    }
+
+    .shop-nav .nav-list li > *{
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+
+    .shop-nav .nav-list li span{
+        font-size: 13px;
+    }
+
+    div.product-card{
+        width : calc(100% - 70px);
+        left : 70px;
+        grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+    }
+    
+    div.product-card .card{
+        width: 205px;
+        height: 300px;
+    }
+    
+}
+
+@media (max-width : 650px){
+    .header .login-register .login-register-text{
+        display: none;
+    }
+
+    .header .login-register{
+        padding-right: 0;
+    }
+}
+
+@media (max-width : 540px){
+
+    .header{
+        padding: 0px;
+    }
+
+    .header .logo-and-burger i{
+        margin-right: 0px;
+    }
+
+    .shop-filters i{
+        display: none;
+    }
+    
+}
+
+@media (max-height : 535px){
+    .shop-nav .nav-list{
+        height: calc(100% - 40px);
+    }
+}
+
+@media (max-height : 500px){
+    .shop-nav .nav-list li{
+        margin-bottom: 15px;
+    }
+}

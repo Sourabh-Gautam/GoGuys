@@ -1,0 +1,54 @@
+#registrationpage-container #registration-card{
+    height: 500px;
+  }
+
+#registrationpage-container #registration-card .input-fields #t-and-c{
+    text-align: center;
+    font-size: 12px;
+  }
+
+@media (max-height : 580px) {
+    #registrationpage-container #registration-card{
+        height: 400px;
+    }
+
+    #registrationpage-container #registration-card .input-fields > *{
+        margin-bottom: 5px;
+        height: 37px;
+        line-height: 10px;
+    }
+
+    #registrationpage-container #registration-card .input-fields #t-and-c span{
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    #registrationpage-container #registration-card i.see-password{
+      top: 130px;
+    }
+  }
+
+  @media (max-height : 500px){
+    #registrationpage-container #registration-card{
+        height: 360px;
+    }
+
+    #registrationpage-container #registration-card i.see-password{
+      top: 100px;
+    }
+  }
+
+  @media (max-height : 380px){
+    #registrationpage-container #registration-card .input-fields > *{
+        margin-bottom: 5px;
+        height: 25px;
+    }
+
+    #registrationpage-container #registration-card{
+        height: 290px;
+    }
+
+    #registrationpage-container #registration-card i.see-password{
+      top: 84px;
+    }
+  }
