@@ -226,14 +226,14 @@ $("body").on('change', 'select#shops', (e) => {
 }
 );
 
-$("body").on('change', '.add-product .not-description select.shops', (e) => {
+$("body").on('change', '.product select.shops', (e) => {
     let changeC = shopAndCategoryCollection[$(e.target).val()];
     let html = "";
     for (let category of changeC) {
         html = html.concat("<option value='" + category + "'>" + category + "</option>");
     }
 
-    $(".add-product .not-description select.category").html(html);
+    $(".product select.category").html(html);
 }
 );
 

@@ -304,67 +304,52 @@
                         <ul class="search-up-result">
 
                         </ul>
-                        <div class="product-details">
+                        <section class="server-data">
+                            <div class="product-details">
                             <div class="not-description">
                                 <table>
-                                    <tr><th>Name</th><td><input type="text"  name="pname" placeholder="product name"></td></tr>
-                                    <tr><th>Price</th><td><input type="number" class="price" name="price" placeholder="price"></td></tr>
-                                    <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" placeholder="quantity"></td></tr>
-                                    <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" placeholder="short description"></td></tr>
-                                    <tr><th>Unit</th><td><select name="unit" class="unit">
-                                                <option value="kg">kg</option>
-                                                <option value="gm">gm</option>
-                                                <option value="ltr">ltr</option>
-                                                <option value="ml">ml</option>
-                                                <option value="piece">piece</option>
-                                            </select></td></tr>
-                                    <tr><th>Shop</th><td><select name="shops" class="shops">
-
-                                            </select></td></tr>
-                                    <tr><th>Category</th><td><select name="category" class="category">
-
-                                            </select></td></tr>
-                                    <tr><th>Type</th><td><select name="type" class="type">
-                                                <option value="Pack">Pack</option>
-                                                <option value="Open">Open</option>
-                                            </select></td></tr>
+                                    <tr><th>ID</th><td><input type="text"  name="id" disabled></td></tr>
+                                    <tr><th>Name</th><td><input type="text"  name="pname" disabled></td></tr>
+                                    <tr><th>Price</th><td><input type="number" class="price" name="price" disabled></td></tr>
+                                    <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" disabled></td></tr>
+                                    <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" disabled></td></tr>
+                                    <tr><th>Unit</th><td><input name="unit" class="unit" disabled></td></tr>
+                                    <tr><th>Shop</th><td><input name="shops" class="shops" disabled>
+                                    <tr><th>Category</th><td><input name="category" class="category" disabled>
+                                    <tr><th>Type</th><td><input name="type" class="type" disabled>
                                 </table>
                             </div>
                             <div class="description">
                                 <label>Full Description</label>
-                                <textarea name="full-description"></textarea>
+                                <textarea name="full-description" disabled="true"></textarea>
                             </div>
                         </div>
                         <div class="product-images">
                             <div class="all-img-container">
                                 <div class="not-img">
-                                    <input type="file" class="img-file img1" name="img-1" accept="image/*">
                                     <i class='bx bx-plus'></i>
 
                                 </div>
                                 <div class="not-img">
-                                    <input type="file" class="img-file img2" name="img-2" accept="image/*">
                                     <i class='bx bx-plus'></i>
 
                                 </div>
                                 <div class="not-img">
-                                    <input type="file" class="img-file img3" name="img-3" accept="image/*">
                                     <i class='bx bx-plus'></i>
 
                                 </div>
                                 <div class="not-img">
-                                    <input type="file" class="img-file img4" name="img-4" accept="image/*">
                                     <i class='bx bx-plus'></i>
 
                                 </div>
                                 <div class="not-img">
-                                    <input type="file" class="img-file img5" name="img-5" accept="image/*">
                                     <i class='bx bx-plus'></i>
 
                                 </div>
                             </div>
                         </div>
-                        <button class="product-action-button">Update Product</button>
+                        </section>
+                        <button class="update-product-btn product-action-button">Update Product</button>
                     </div>
                 </form>
 

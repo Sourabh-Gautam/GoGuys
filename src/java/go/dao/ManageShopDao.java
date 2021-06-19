@@ -34,7 +34,7 @@ public class ManageShopDao {
             ps3 = DbConnection.getConnection().prepareStatement("update categories set shopname = ? where shopname = ?");
             ps4 = DbConnection.getConnection().prepareStatement("insert into categories values(?,?)");
             ps6 = DbConnection.getConnection().prepareStatement("delete  from categories where category = ? and shopname = ?");
-            ps7 = DbConnection.getConnection().prepareStatement("select * from categories");
+            ps7 = DbConnection.getConnection().prepareStatement("select * from categories order by category desc");
 
         } catch (SQLException sql) {
             sql.printStackTrace();

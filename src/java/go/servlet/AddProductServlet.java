@@ -34,10 +34,10 @@ public class AddProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         File directory = null;
-         long uniqueId = getUniqueId();
+        PrintWriter pw = response.getWriter();
+        long uniqueId = getUniqueId();
         try {
             System.out.println("Request in Add Product Servlet");
-            PrintWriter pw = response.getWriter();
             List<FileItem> formData = getFormData(request);
             Map<String, String> map = getFormFields(formData);
 
@@ -55,20 +55,20 @@ public class AddProductServlet extends HttpServlet {
                 }
             } else {
                 System.out.println("Directory Already Exist");
-                pw.print("Product is already exist with this name! Use different name.");
+                pw.print("warning");
                 return;
             }
 
             boolean b = ManageProductDao.addProduct(map, uniqueId);
             if (!b) {
-                pw.print("Got stucked while adding data!");
+                FileUtils.deleteDirectory(directory);
+                pw.print("error");
                 return;
             } else {
-                pw.print("Data added");
+                int result = writeImages(formData, directoryName);
+                System.out.println(result + " images inserted");
+                pw.print("Product added successfully!");
             }
-
-            int result = writeImages(formData, directoryName);
-            System.out.println(result + " images inserted");
         } catch (IOException io) {
             System.out.println("IOException : " + io.getMessage());
             if (directory.exists()) {
@@ -76,10 +76,12 @@ public class AddProductServlet extends HttpServlet {
                 System.out.println("Directory Deleted");
             }
             try {
-                System.out.print(ManageProductDao.removeProduct(uniqueId));
+                ManageProductDao.removeProduct(uniqueId);
                 System.out.println("Row Deleted");
+                pw.print("error");
             } catch (Exception ex) {
                 ex.printStackTrace();
+                pw.print("error");
                 System.out.println("Unable to delete unconditionally added row");
             }
             //Remove the new product details inerted in the database
@@ -87,13 +89,14 @@ public class AddProductServlet extends HttpServlet {
         } catch (SQLException sql) {
             //Deleted the directory created
             FileUtils.deleteDirectory(directory);
-            System.out.println("Error: " + sql.getMessage() + ", Directory Deleted");
+            pw.print("error");
         } catch (Exception ex) {
+            pw.print("error");
             ex.printStackTrace();
         }
     }
-    
-    public long getUniqueId(){
+
+    public long getUniqueId() {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yMMdHms");
         long id = Long.parseLong(sdf.format(d));
@@ -137,6 +140,7 @@ public class AddProductServlet extends HttpServlet {
                 count++;
             }
         }
+        
         return flag;
     }
 

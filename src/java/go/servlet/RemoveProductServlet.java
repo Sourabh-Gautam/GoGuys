@@ -6,13 +6,14 @@
 package go.servlet;
 
 import go.dao.ManageProductDao;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.json.JSONObject;
 
 /**
@@ -21,24 +22,20 @@ import org.json.JSONObject;
  */
 public class RemoveProductServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String shop = request.getParameter("0");
         String category = request.getParameter("1");
         String product = request.getParameter("2");
+        String PATH = request.getServletContext().getRealPath("/");
+        String directoryName = PATH.concat("images/product/" + product);
+        File directory = new File(directoryName);
         PrintWriter pw = response.getWriter();
-        System.out.println(shop + " : " + category + " : " + product);
         try {
             JSONObject result = ManageProductDao.removeProduct(shop, category, product);
+            if (result != null) {
+                FileUtils.deleteDirectory(directory);
+            }
             pw.print(result);
         } catch (Exception ex) {
             ex.printStackTrace();
