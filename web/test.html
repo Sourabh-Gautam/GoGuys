@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <input type="text" class="number" value="918744828707">
+        <button class="genrate">Genrate Otp</button>
+        <script>
+            let number=document.querySelector('.number').value;
+           
+//            document.querySelector('.verify').addEventListener("click",function(){
+//                console.log("verify clicked");
+//                let data={
+//                    number:number,
+//                    verifyOTP:verifyOTP,
+//                    action:'2'
+//                };
+//                $.post('VERIFY',data,function(responseText){
+//                    console.log("Hello verify");
+//                    });
+//            });
+              document.querySelector('.genrate').addEventListener("click",function(){
+                  console.log("genrate OTP clicked");
+                $.post('VERIFY', {number:number}, function(responseText){
+                    console.log("hello genrate");
+                    });
+            });  
+            
+        </script>
+    </body>
+</html>

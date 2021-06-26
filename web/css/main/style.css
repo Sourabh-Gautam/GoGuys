@@ -16,6 +16,17 @@ body{
     background-color: rgb(238, 238, 238);
 }
 
+#global-tt{
+    position: absolute;
+    z-index: 100;
+    color: white;
+    padding: 4px;
+    background-color: #353935;
+    font-size: 12px;
+    border-radius: 1px;
+    border: thin #000000 solid;
+}
+
 /* Wildcard Alignment Center */
 
 .middle-alignment{
@@ -33,7 +44,7 @@ body{
     border-bottom: rgba(184, 184, 184, 0.5) thin solid;
     padding: 10px;
     transition: all 0.5s ease;
-    z-index: 2;
+    z-index: 3;
 }
 
 .header .logo-and-burger i{
@@ -64,17 +75,41 @@ body{
 .header .search{
     justify-content: flex-end;
     flex-grow: 1;
+    position: relative;
 }
 
 .header .search input{
     width: 60%;
     height: 40px;
-    outline: none;
     padding: 10px;
     border-radius: 3px 0px 0px 3px;
     font-size: 17px;
     border: solid 2px lightgray;
+    outline: none;
     border-right: none;
+}
+
+.search .search-list {
+    position: absolute;
+    list-style-type:none; 
+    width: calc(60% + 40px);
+    background-color: whitesmoke;
+    border: solid 1px lightgray;
+    border-top: none;
+    top: 57.5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.search .search-list li {
+    height: 25px;
+    margin: 5px 0px;
+    font-size: 17px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.search .search-list li:hover{
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 .header .search i{
@@ -82,7 +117,7 @@ body{
     height: 40px;
     width: 40px;
     border-radius: 0px 3px 3px 0px;
-    border: solid 2px lightgray;
+    border: solid 2px rgb(38,151,255);
     border-left: none;
     color: rgba(255, 255, 255, 0.8);
     background-color: rgb(38,151,255);
@@ -93,6 +128,7 @@ body{
 .header .search i:hover{
     color: rgba(255, 255, 255, 1);
 }
+
 
 .header .login-register{
     flex-grow: 1;
@@ -106,8 +142,8 @@ body{
     padding: 5px;
     margin-left: 5px;
     border-radius: 25px;
-    border: thin rgba(211, 211, 211, 0.7) solid;
-    background-color: rgba(211, 211, 211, 0.4);
+    border: thin rgba(211, 211, 211, 0.4) solid;
+    background-color: rgba(211, 211, 211, 0.3);
     transition: all 0.5s ease;
 }
 
@@ -126,7 +162,7 @@ body{
 }
 
 .header .login-register .login-register-dp:hover{
-    background-color: rgba(211, 211, 211, 0.7);
+    background-color: rgba(211, 211, 211, 0.4);
 }
 
 .header .login-register .cart{
@@ -134,14 +170,14 @@ body{
     margin-right: 10px;
     padding: 5px;
     border-radius: 25px;
-    border: thin rgba(211, 211, 211, 0.7) solid;
-    background-color: rgba(211, 211, 211, 0.4);
+    border: thin rgba(211, 211, 211, 0.4) solid;
+    background-color: rgba(211, 211, 211, 0.3);
     transition: all 0.5s ease;
     cursor: pointer;
 }
 
 .header .login-register .cart:hover{
-    background-color: rgba(211, 211, 211, 0.7);
+    background-color: rgba(211, 211, 211, 0.4);
 }
 
 /* Shop Section CSS */
@@ -154,7 +190,7 @@ body{
     overflow-x: hidden;
     top: 76px;
     transition: all 0.4s ease;
-    background-color: rgb(233,233,233);
+    background-color: rgb(234.5,234.5,234.5);
 }
 
 .shop-nav .nav-list{
@@ -230,7 +266,7 @@ div.shop-nav ul.nav-list li:hover{
     justify-content: center;
     list-style-type: none;
     margin: 3px 10px;
-    font-size: 18px;
+    font-size: 17px;
     border: thin solid rgb(219, 219, 219);
     border-radius: 20px;
     padding: 10px;

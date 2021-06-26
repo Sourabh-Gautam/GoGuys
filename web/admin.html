@@ -237,10 +237,10 @@
                         <div class="product-details">
                             <div class="not-description">
                                 <table>
-                                    <tr><th>Name</th><td><input type="text"  name="pname" placeholder="product name"></td></tr>
-                                    <tr><th>Price</th><td><input type="number" class="price" name="price" placeholder="price"></td></tr>
-                                    <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" placeholder="quantity"></td></tr>
-                                    <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" placeholder="short description"></td></tr>
+                                    <tr><th>Name</th><td><input type="text" class="pname cum" name="pname" placeholder="product name"></td></tr>
+                                    <tr><th>Price</th><td><input type="number" class="price cum" name="price" placeholder="price"></td></tr>
+                                    <tr><th>Quantity</th><td><input type="number" class="quantity cum" name="quantity" placeholder="quantity"></td></tr>
+                                    <tr><th>Short description</th><td><input type="text" class="short-description cum" name="short-description" placeholder="short description"></td></tr>
                                     <tr><th>Unit</th><td><select name="unit" class="unit">
                                                 <option value="kg">kg</option>
                                                 <option value="gm">gm</option>
@@ -262,7 +262,7 @@
                             </div>
                             <div class="description">
                                 <label>Full Description</label>
-                                <textarea name="description"></textarea>
+                                <textarea name="description" class="cum"></textarea>
                             </div>
                         </div>
                         <div class="product-images">
@@ -308,8 +308,8 @@
                             <div class="product-details">
                             <div class="not-description">
                                 <table>
-                                    <tr><th>ID</th><td><input type="text"  name="id" disabled></td></tr>
-                                    <tr><th>Name</th><td><input type="text"  name="pname" disabled></td></tr>
+                                    <tr><th>ID</th><td><input type="text" name="id" disabled></td></tr>
+                                    <tr><th>Name</th><td><input type="text" class="pname" name="pname" disabled></td></tr>
                                     <tr><th>Price</th><td><input type="number" class="price" name="price" disabled></td></tr>
                                     <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" disabled></td></tr>
                                     <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" disabled></td></tr>
@@ -321,7 +321,7 @@
                             </div>
                             <div class="description">
                                 <label>Full Description</label>
-                                <textarea name="full-description" disabled="true"></textarea>
+                                <textarea name="description" disabled="true"></textarea>
                             </div>
                         </div>
                         <div class="product-images">

@@ -4,13 +4,14 @@ import go.util.DbConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ManageProductDao {
 
-    private static PreparedStatement ps, ps1, ps2, ps3, ps4, ps5 = null;
+    private static PreparedStatement ps, ps1, ps2, ps3, ps4, ps5, ps6, ps7 = null;
 
     static {
         try {
@@ -20,6 +21,8 @@ public class ManageProductDao {
             ps3 = DbConnection.getConnection().prepareStatement("select * from products where id=?");
             ps4 = DbConnection.getConnection().prepareStatement("delete from products where shopname=? and category=? and product=?");
             ps5 = DbConnection.getConnection().prepareStatement("select * from products where product=?");
+            ps6 = DbConnection.getConnection().prepareStatement("SELECT * from products where shopname = ?");
+            ps7 = DbConnection.getConnection().prepareStatement("SELECT * from products where shopname = ? and category = ?");
 
         } catch (SQLException sql) {
             sql.printStackTrace();
@@ -41,12 +44,12 @@ public class ManageProductDao {
             json.put("category", rs.getString("category"));
             json.put("type", rs.getString("type"));
             json.put("description", rs.getString("description"));
-        }else{
+        } else {
             json = null;
         }
         return json;
     }
-    
+
     public static JSONObject getProduct(long id) throws SQLException, JSONException {
         JSONObject json = new JSONObject();
         ps3.setString(1, String.valueOf(id));
@@ -62,8 +65,41 @@ public class ManageProductDao {
             json.put("category", rs.getString("category"));
             json.put("type", rs.getString("type"));
             json.put("description", rs.getString("description"));
-        }else{
+        } else {
             json = null;
+        }
+        return json;
+    }
+
+    public static JSONObject getProducts(String shopname, String category, int start, int end) throws SQLException, JSONException {
+        JSONObject json = new JSONObject();
+        JSONObject innerJSON = null;
+        ResultSet rs = null;
+        if (category.equals("All")) {
+            ps6.setString(1, shopname);
+            rs = ps6.executeQuery();
+        } else {
+            ps7.setString(1, shopname);
+            ps7.setString(2, category);
+            rs = ps7.executeQuery();
+        }
+        int count = 1;
+        for (int i = 1; rs.next(); i++) {
+            if (i >= start && i < end) {
+                innerJSON = new JSONObject();
+                innerJSON.put("id", rs.getLong("id"));
+                innerJSON.put("pname", rs.getString("product"));
+                innerJSON.put("price", rs.getDouble("price"));
+                innerJSON.put("quantity", rs.getInt("quantity"));
+                innerJSON.put("shortdescription", rs.getString("shortdescription"));
+                innerJSON.put("unit", rs.getString("unit"));
+                innerJSON.put("shop", rs.getString("shopname"));
+                innerJSON.put("category", rs.getString("category"));
+                innerJSON.put("type", rs.getString("type"));
+                innerJSON.put("description", rs.getString("description"));
+                json.put(count + "", innerJSON);
+                count++;
+            }
         }
         return json;
     }

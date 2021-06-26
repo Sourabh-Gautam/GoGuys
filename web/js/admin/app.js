@@ -23,3 +23,4 @@ $(".three-bar").click(function(){
 $('.sidebar li').click(function(e){
     showContent(e.currentTarget);
 });
+

@@ -15,10 +15,10 @@
     <div class="not-description">
         <table>
             <tr><th>ID</th><td><input type="text"  name="id" value="<%= json.get("id")%>" disabled="true"></td></tr>
-            <tr><th>Name</th><td><input type="text"  name="pname" value="<%= json.get("pname")%>"></td></tr>
-            <tr><th>Price</th><td><input type="number" class="price" name="price" value="<%= json.get("price")%>"></td></tr>
-            <tr><th>Quantity</th><td><input type="number" class="quantity" name="quantity" value="<%= json.get("quantity")%>"></td></tr>
-            <tr><th>Short description</th><td><input type="text" class="short-description" name="short-description" value="<%= json.get("shortdescription")%>"></td></tr>
+            <tr><th>Name</th><td><input type="text" class="pname cumu"  name="pname" value="<%= json.get("pname")%>"></td></tr>
+            <tr><th>Price</th><td><input type="number" class="price cumu" name="price" value="<%= json.get("price")%>"></td></tr>
+            <tr><th>Quantity</th><td><input type="number" class="quantity cumu" name="quantity" value="<%= json.get("quantity")%>"></td></tr>
+            <tr><th>Short description</th><td><input type="text" class="short-description cumu" name="short-description" value="<%= json.get("shortdescription")%>"></td></tr>
             <tr><th>Unit</th><td><select name="unit" class="unit">
                     <%
                         for (String unit : units) {
@@ -90,7 +90,7 @@
     </div>
     <div class="description">
         <label>Full Description</label>
-        <textarea name="full-description"><%= json.get("description")%></textarea>
+        <textarea name="description" class="cumu"><%= json.get("description")%></textarea>
     </div>
 </div>
 <div class="product-images">
@@ -107,7 +107,7 @@
             <div class="img-container">
                 <i class="bx bxs-trash-alt"></i>
 
-                <img src="data:image/jpg;charset=utf-8;base64,<%= images[i - 1]%>" alt="images">
+                <img class="base64image" src="data:image/jpg;charset=utf-8;base64,<%= images[i - 1]%>" alt="images">
                 </div>
                 <%} %>
             

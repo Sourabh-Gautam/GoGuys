@@ -26,55 +26,31 @@ function animateMe(e1){
     //         }, 2000);
     //     }
     // });
+    
+   
+// Refresh page when click on logo
 
-// Login | Register Button Functionalities
+$('.header .logo').click(function(e){
+    window.location.reload();
+});
+
+// Login | Register Functionalities
 
 $(".login-register-dp").click(function (e) { 
     $(".login-registration-page-container").removeClass("display-none");
 });
 
-$("#register-link").click(function (e) { 
+$("body").on('click', '#register-link', function (e) { 
     e.preventDefault();
     $("#loginpage-container").addClass("display-none");
     $("#registrationpage-container").removeClass("display-none");
 });
 
-$("#login-link").click(function (e) { 
+$("body").on('click', '#login-link',function (e) { 
     e.preventDefault();
     $("#registrationpage-container").addClass("display-none");
     $("#loginpage-container").removeClass("display-none");
 
-});
-
-// Cross Button Functionalities
-
-$(".remove-card").click(function (e) { 
-    $("#login-eye").addClass("display-none");
-    $("#registration-eye").addClass("display-none");
-    $(".login-registration-page-container input").val("");
-    var has = $("#registrationpage-container").hasClass("display-none");
-    if(has !== true){
-        $("#registrationpage-container").addClass("display-none");
-        $("#loginpage-container").removeClass("display-none");
-    }
-    $(".login-registration-page-container").addClass("display-none");
-});
-
-// Click on Login and register page container will make it display none
-
-$(".login-registration-page-container").mousedown(function (e) { 
-    console.log(e);
-    if($(e.target).hasClass("login-registration-page-container")){
-        $("#login-eye").addClass("display-none");
-        $("#registration-eye").addClass("display-none");
-        $(".login-registration-page-container input").val("");
-        var has = $("#registrationpage-container").hasClass("display-none");
-        if(has !== true){
-            $("#registrationpage-container").addClass("display-none");
-            $("#loginpage-container").removeClass("display-none");
-        }
-        $(".login-registration-page-container").addClass("display-none");
-   }
 });
 
 // Eye Button Functionalies
@@ -133,11 +109,13 @@ $(".burger").click(function (e) {
             $(".shop-nav").removeClass("br-dcss-gt1000");
             $(".shop-filters").removeClass("br-dcss-gt1000");
             $(".product-card").removeClass("br-dcss-gt1000");
+            $("#product-card-cover").removeClass("br-dcss-gt1000");
             $(".product-card .card").removeClass("br-dcss-gt1000");
         }
         $(".shop-nav").toggleClass("br-dcss-lt1000");
         $(".shop-filters").toggleClass("br-dcss-lt1000");
         $(".product-card").toggleClass("br-dcss-lt1000");
+        $("#product-card-cover").toggleClass("br-dcss-lt1000");
         $(".product-card .card").toggleClass("br-dcss-lt1000");
     }
     else{
@@ -145,6 +123,7 @@ $(".burger").click(function (e) {
             $("#cart-section").removeClass("ct-dcss-gt1000");
             $(".shop-filters").removeClass("ct-dcss-gt1000");
             $(".product-card").removeClass("ct-dcss-gt1000");
+            $("#product-card-cover").removeClass("ct-dcss-gt1000");
             $(".product-card .card").removeClass("ct-dcss-gt1000");
             $(".product-card .card").addClass("br-dcss-gt1000");
         }
@@ -152,11 +131,13 @@ $(".burger").click(function (e) {
             $(".shop-nav").removeClass("br-dcss-lt1000");
             $(".shop-filters").removeClass("br-dcss-lt1000");
             $(".product-card").removeClass("br-dcss-lt1000");
+            $("#product-card-cover").removeClass("br-dcss-lt1000");
             $(".product-card .card").removeClass("br-dcss-lt1000");
         }
         $(".shop-nav").toggleClass("br-dcss-gt1000");
         $(".shop-filters").toggleClass("br-dcss-gt1000");
         $(".product-card").toggleClass("br-dcss-gt1000");
+        $("#product-card-cover").toggleClass("br-dcss-gt1000");
         $(".product-card .card").toggleClass("br-dcss-gt1000");
     }
 });
@@ -238,3 +219,6 @@ $(window).mouseup(function (e2) {
         }, 200);
     }
 });
+
+
+    

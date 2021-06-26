@@ -101,22 +101,28 @@ function manageShopCategory(e, action) {
                 .then((willDelete) => {
                     if (willDelete) {
                         xhr = $.post('ManageShopCategoryServlet', data, (responseText) => {
-                            swal("Shop Category has been deleted!", {
-                                icon: "success",
-                            });
-                            promise = dynamicShopCategoryUpdate();
-                            promise.then(function (shopAndCategoryCollection) {
-
-                                $('select#categories').each(function (index, element) {
-                                    let html = "";
-                                    let  categories = shopAndCategoryCollection[$(element).prev().val()];
-                                    for (let category of categories) {
-                                        html = html.concat("<option value='" + category + "'>" + category + "</option>");
-                                    }
-                                    console.log(html)
-                                    $(element).html(html);
+                            if (responseText === 'true') {
+                                swal("Shop Category has been deleted!", {
+                                    icon: "success",
                                 });
-                            });
+                                promise = dynamicShopCategoryUpdate();
+                                promise.then(function (shopAndCategoryCollection) {
+
+                                    $('select#categories').each(function (index, element) {
+                                        let html = "";
+                                        let  categories = shopAndCategoryCollection[$(element).prev().val()];
+                                        for (let category of categories) {
+                                            html = html.concat("<option value='" + category + "'>" + category + "</option>");
+                                        }
+                                        console.log(html)
+                                        $(element).html(html);
+                                    });
+                                });
+                            }else{
+                                swal("Some error occured!", {
+                                    icon: "error",
+                                });
+                            }
                         }
                         );
                         xhr.fail((jqxhr, textstatus) => {
@@ -237,8 +243,8 @@ $("body").on('change', '.product select.shops', (e) => {
 }
 );
 
-$(".enter-key").keypress(function(e){
-    if(e.charCode === 13){
+$(".enter-key").keypress(function (e) {
+    if (e.charCode === 13) {
         $($(e.target).siblings("button")).trigger("click");
         console.log($(e.target))
         $(e.target).focus();

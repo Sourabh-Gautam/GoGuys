@@ -22,28 +22,30 @@ public class ManageShopCategoryServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         ArrayList<String> dataList = new ArrayList<>();
-        for(int i =1; i<4; i++){
-            if(request.getParameter(i+"")!=null)
-            dataList.add(request.getParameter(i+""));
-            
+        PrintWriter pw = response.getWriter();
+        ArrayList<String> dataList = new ArrayList<>();
+        for (int i = 1; i < 4; i++) {
+            if (request.getParameter(i + "") != null) {
+                dataList.add(request.getParameter(i + ""));
+            }
+
         }
         boolean result = false;
-        try{
-                    switch(request.getParameter("0")){
-            case "add" :
-                result = ManageShopDao.addShopCategory(dataList);
-                break;
-            case "remove" :
-                result = ManageShopDao.removeShopCategory(dataList);
-                break;
-            case "update" : 
-                result = ManageShopDao.updateShopCategory(dataList);
-        }
-        }catch(Exception ex){
+        try {
+            switch (request.getParameter("0")) {
+                case "add":
+                    result = ManageShopDao.addShopCategory(dataList);
+                    break;
+                case "remove":
+                    result = ManageShopDao.removeShopCategory(dataList);
+                    break;
+                case "update":
+                    result = ManageShopDao.updateShopCategory(dataList);
+            }
+        } catch (Exception ex) {
             ex.printStackTrace();
+            pw.print("error");
         }
-        PrintWriter pw = response.getWriter();
         pw.print(result);
     }
 

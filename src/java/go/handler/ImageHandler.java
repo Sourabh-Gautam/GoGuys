@@ -1,4 +1,4 @@
-package go.image;
+package go.handler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -1,55 +1,59 @@
 .login-registration-page-container {
-  z-index: 11;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
+    z-index: 11;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
 }
 
 .loginpage-container .login-card {
-  position: relative;
-  width: 350px;
-  height: 384px;
-  border-radius: 0px 20px 0px 20px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  transition: all 0.5s ease;
+    position: relative;
+    width: 350px;
+    height: 384px;
+    border-radius: 0px 20px 0px 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    transition: all 0.5s ease;
 }
 
 .loginpage-container .login-card i.remove-card{
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  color: rgba(2, 73, 117, 1);
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgba(2, 73, 117, 1);
 }
 
 .loginpage-container .login-card i.see-password{
-  position: absolute;
-  top: 145px;
-  right: 35px;
-  color: gray;
-  padding: 12px;
-  cursor: pointer;
+    position: absolute;
+    top: 150px;
+    right: 35px;
+    color: gray;
+    padding: 12px;
+    cursor: pointer;
 }
 
 .loginpage-container .login-card .company-logo {
-  font-size: 40px;
-  font-weight: 600;
-  width: 100%;
-  height: 90px;
-  line-height: 90px;
-  text-align: center;
-  color: rgb(2, 73, 117);
-  transition: all 0.5s ease;
+    font-size: 40px;
+    font-weight: 600;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    color: rgb(2, 73, 117);
+    transition: all 0.5s ease;
+}
+
+.loginpage-container .login-card .company-logo strong{
+      cursor: pointer;
 }
 
 .loginpage-container .login-card .company-logo span {
-  color: rgb(221, 84, 114);
+    color: rgb(221, 84, 114);
 }
 
 .loginpage-container .login-card .input-fields {
@@ -58,104 +62,103 @@
 }
 
 .loginpage-container .login-card .input-fields > :not(.forget-pwd) {
-  display: block;
-  width: 100%;
-  height: 40px;
-  margin-bottom: 15px;
-  outline: none;
-  border: rgba(0, 0, 0, 0.15) solid thin;
-  font-size: 17px;
-  padding: 10px;
-  border-radius: 5px;
-  transition: all 0.5s ease;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    outline: none;
+    border: rgba(0, 0, 0, 0.15) solid thin;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
 }
 
 .loginpage-container .login-card .input-fields > :last-child{
-  text-align: end;
-  transition: all 0.5s ease;
+    text-align: end;
+    transition: all 0.5s ease;
 }
 
 .loginpage-container .login-card .input-fields > :last-child a{
-  text-decoration: none;
-  color: rgb(34, 0, 128);
-  text-align: end;
+    text-decoration: none;
+    color: rgb(34, 0, 128);
+    text-align: end;
 }
 
 .loginpage-container .login-card .input-fields button{
-  background-color: rgba(2, 73, 117, 1);
-  color: white;
-  line-height: 20px;
-
+    background-color: rgba(2, 73, 117, 1);
+    color: white;
+    line-height: 20px;
+    display: block;
 }
 
 .loginpage-container .login-card .input-fields > *::placeholder{
-  color: rgb(148, 148, 148);
+    color: rgb(148, 148, 148);
 }
 
 .loginpage-container .login-card .register {
-  position: absolute;
-  width: 80%;
-  margin-left: 10% ;
-  text-align: center;
-  padding: 10px;
-  bottom: 25px;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  transition: all 0.5s ease;
+    position: absolute;
+    width: 80%;
+    margin-left: 10% ;
+    text-align: center;
+    padding: 10px;
+    bottom: 25px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    transition: all 0.5s ease;
 }
 
 .loginpage-container .login-card .register a {
-  text-decoration: none;
-  color: #2E77F2; 
-  font-weight: bolder;
+    text-decoration: none;
+    color: #2E77F2; 
+    font-weight: bolder;
 }
 
 @media (max-height : 500px) {
-  .loginpage-container .login-card i.see-password{
-    top: 115px;
-  }
+    .loginpage-container .login-card i.see-password{
+        top: 115px;
+    }
 
-  .loginpage-container .login-card2{
-    height: 300px;
-  }
+    .loginpage-container .login-card2{
+        height: 300px;
+    }
 
-  .loginpage-container .login-card .company-logo2{
-    height: 60px;
-    line-height: 60px;
-  }
+    .loginpage-container .login-card .company-logo2{
+        height: 60px;
+        line-height: 60px;
+    }
 
-  .loginpage-container .login-card .register2{
-    bottom: 10px;
-  }
+    .loginpage-container .login-card .register2{
+        bottom: 10px;
+    }
 
-  .loginpage-container .login-card .input-fields2 > *{
-    margin-bottom: 7px;
-    height: 37px;
-    line-height: 10px;
-  }
+    .loginpage-container .login-card .input-fields2 > *{
+        margin-bottom: 7px;
+        height: 37px;
+        line-height: 10px;
+    }
 }
 
 @media (max-width : 390px){
-  .loginpage-container .login-card i.see-password{
-    right: 30px;
-  }
+    .loginpage-container .login-card i.see-password{
+        right: 30px;
+    }
 
-  .loginpage-container .login-card .register .ask-register{
-    display: none;
-  }
+    .loginpage-container .login-card .register .ask-register{
+        display: none;
+    }
 
-  .loginpage-container .login-card2{
-    width: 300px;
-  }
+    .loginpage-container .login-card2{
+        width: 300px;
+    }
 }
 
 @media (max-width : 330px){
-  .loginpage-container .login-card i.see-password{
-    right: 26px;
-  }
+    .loginpage-container .login-card i.see-password{
+        right: 26px;
+    }
 
-  .loginpage-container .login-card2{
-    width: 260px;
-  }
+    .loginpage-container .login-card2{
+        width: 260px;
+    }
 }

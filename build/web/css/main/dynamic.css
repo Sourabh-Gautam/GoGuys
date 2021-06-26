@@ -2,6 +2,10 @@
     display: none;
 }
 
+.pointer-none{
+    pointer-events: none;
+}
+
 .active-shop{
     background-color: rgba(0, 0, 0, 0.6);
     color:  rgba(255, 255, 255, 0.8);
@@ -29,6 +33,11 @@
     grid-template-columns: repeat(auto-fill, minmax(223px, 1fr));
 }
 
+#product-card-cover.br-dcss-gt1000{
+    width : calc(100% - 70px);
+    left : 70px;
+}
+
 #product-card .card.br-dcss-gt1000{
     width: 223px;
     height: 320px;
@@ -47,6 +56,10 @@
 #product-card.ct-dcss-gt1000{
     width : calc(100% - 680px);
     grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+}
+
+#product-card-cover.ct-dcss-gt1000{
+    width : calc(100% - 680px);
 }
 
 #product-card .card.ct-dcss-gt1000{
@@ -83,47 +96,70 @@
     height: 320px;
 }
 
+/* Login and register button */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Dynamic CSS auto compress size shop nav*/
-/* 
-#shop-nav.dynamic-css-540{
-    width: 50px;
-} 
-
-#shop-nav .dynamic-css-540{
-        width: 50px;
+#register-btn.inactive-btn {
+  background-color: rgba(2, 73, 117, 0.7);
 }
 
-#shop-nav .nav-list li span.dynamic-css-540{
-        font-size: 10px;
+#login-btn.inactive-btn {
+  background-color: rgba(2, 73, 117, 0.7);
 }
 
-#shop-nav .nav-list li.dynamic-css-540{
-    padding-left: 0px;
+/*Request otp loading animation*/
+
+#request-otp a.loading {
+  font-size: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: rgba(0, 0, 0, 0.3) solid 2px;
+  border-left-color: transparent;
+  animation: rotate 1s ease 0.3s infinite;
 }
 
-#shop-nav .nav-list li i.dynamic-css-540{
-    margin-right: 0px;
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
 }
 
-#shop-filters.dynamic-css-540{
-    left: 50px;
-    width: calc(100% - 50px);
+/* Submit otp button loading animation */
+
+#registration-card .otp-section button.submit-otp-btn.loading {
+  font-size: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: rgba(0, 0, 0, 0.3) solid 2px;
+  border-left-color: transparent;
+  animation: rotate 1s ease 0.3s infinite;
 }
 
-#shop-filters .filters li.dynamic-css-540{
-    margin: 3px 5px;
-} */
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Register button loading animation */
+
+#registration-card #register-btn.loading {
+  font-size: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: rgba(0, 0, 0, 0.3) solid 2px;
+  border-left-color: transparent;
+  animation: rotate 1s ease 0.3s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+}

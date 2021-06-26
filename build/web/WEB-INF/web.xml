@@ -32,6 +32,22 @@
         <servlet-name>UpdateProductServlet</servlet-name>
         <servlet-class>go.servlet.UpdateProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetOneProductServlet</servlet-name>
+        <servlet-class>go.servlet.GetOneProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmsSenderServlet</servlet-name>
+        <servlet-class>go.servlet.SmsSenderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckOtpServlet</servlet-name>
+        <servlet-class>go.servlet.CheckOtpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <servlet-class>go.servlet.RegistrationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ManageShopServlet</servlet-name>
         <url-pattern>/ManageShopServlet</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>UpdateProductServlet</servlet-name>
         <url-pattern>/UpdateProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetOneProductServlet</servlet-name>
+        <url-pattern>/GetOneProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmsSenderServlet</servlet-name>
+        <url-pattern>/SmsSenderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOtpServlet</servlet-name>
+        <url-pattern>/CheckOtpServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <url-pattern>/RegistrationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

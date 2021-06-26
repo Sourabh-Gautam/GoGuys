@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Sigmar+One&display=swap');
-
 /* Common Classes */
 
 .heading{
@@ -7,14 +5,13 @@
     padding: 5px 0px 5px 20px;
 background: linear-gradient(90deg, rgb(225, 225, 225) 0%, rgb(240, 240, 240) 48%, rgba(255,255,255,1) 100%);
     border-bottom: rgba(231, 231, 231, 0.8) solid thin;
-    font-family: 'Aclonica', sans-serif;
 
 }
 
 /* Main Start  */
 
 .cart-section{
-    z-index: 8;
+    z-index: 4;
     position: absolute;
     width: 0px;
     height: calc(100% - 76px);

@@ -44,14 +44,24 @@ $('body').on('click', '.product-images .img-container i', function (e) {
 });
 
 
-// Retrieve and upload product to the server
+//Add product form
 
 $('body').on('click', '.add-product .product-action-button', e => {
     e.preventDefault();
-    let formData = new FormData($('.product .add-product-form')[0]);
-    for (var pair of formData.entries()) {
+    let flag = false;
+    $(".cum").val(function (i, v) {
+        if (v === "") {
+            flag = true;
+        }
+        return v;
+    });
+    if (flag) {
+        swal("Notice", "All fields are mandatory", "warning");
+        return false;
     }
-
+    let formData = new FormData($('.product #add-product-form')[0]);
+    console.log("123456789");
+    console.log(formData);
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
@@ -256,7 +266,6 @@ input2.addEventListener("keyup", (e) => {
 //handle the click on search result li 
 
 $('#update-product-form .search-up-result').click(function (e) {
-    console.log("called");
     let selection = $(e.target).attr("class");
     $('input#search-up').val(selection);
     $('#update-product-form .search-up-result').html("");
@@ -288,14 +297,33 @@ $('#update-product-form .search-up-div button.gp').click(function (e) {
 
 
 // Action took on update button clicked
-var oldform;
+
 $(".product .update-product-btn").click(function (e) {
     e.preventDefault();
-    return new Promise(function (resolve, reject) {
+    let flag = false;
+    $(".cumu").val(function (i, v) {
+        if (v === "") {
+            flag = true;
+        }
+        return v;
+    });
+    if (flag) {
+        swal("Notice", "All fields are mandatory", "warning");
+        return false;
+    }
+
+    let formData = new FormData($('.product #update-product-form')[0]);
+    $('.base64image').each(function (i, e) {
+        let image = $(e).attr('src');
+        let base64ImageContent = image.substring(image.indexOf(',') + 1);
+        let blob = base64ToBlob(base64ImageContent, 'image/png');
+        formData.append('picture' + i, blob);
+    });
+
+    let pro = new Promise(function (resolve, reject) {
         let id = $(".product input[ name='id' ]").val();
         let xhr = $.post("UpdateProductServlet", {id: id}, responseText => {
             if (responseText === 'success') {
-                alert(responseText);
                 resolve();
             } else {
                 swal("Error!", "Something went wrong. Try again later", "error");
@@ -305,4 +333,55 @@ $(".product .update-product-btn").click(function (e) {
             swal("Error!", 'Some error occured:' + jqxhr.status, "error");
         });
     });
+    pro.then(function () {
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "AddProductServlet",
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (responseText) {
+                if (responseText === "error") {
+                    swal("Error!", "Something went wrong. Try again later", "error");
+                } else if (responseText === "warning") {
+                    swal("Error!", "A product is already existing with this name", "warning");
+                } else {
+                    swal("Success!", "Product successfully updated", "success");
+                    $(".product .server-data").html(lastHTML);
+                }
+            },
+            error: function (e) {
+                swal("Error!", "Something went wrong. Try again later", "error");
+            }
+        });
+    });
 });
+
+
+//Base64 Image text to blob object
+
+function base64ToBlob(base64, mime)
+{
+    mime = mime || '';
+    var sliceSize = 1024;
+    var byteChars = window.atob(base64);
+    var byteArrays = [];
+
+    for (var offset = 0, len = byteChars.length; offset < len; offset += sliceSize) {
+        var slice = byteChars.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, {type: mime});
+}

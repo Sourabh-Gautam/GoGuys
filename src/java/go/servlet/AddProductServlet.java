@@ -58,7 +58,7 @@ public class AddProductServlet extends HttpServlet {
                 pw.print("warning");
                 return;
             }
-
+            System.out.println(map);
             boolean b = ManageProductDao.addProduct(map, uniqueId);
             if (!b) {
                 FileUtils.deleteDirectory(directory);
@@ -115,7 +115,8 @@ public class AddProductServlet extends HttpServlet {
         HashMap<String, String> map = new HashMap<>();
         for (FileItem item : formData) {
             if (item.isFormField()) {
-                map.put(item.getFieldName(), item.getString());
+                if(!item.getFieldName().equals("id"))
+                map.put(item.getFieldName().trim(), item.getString().trim());
             }
         }
         return map;
@@ -140,7 +141,6 @@ public class AddProductServlet extends HttpServlet {
                 count++;
             }
         }
-        
         return flag;
     }
 

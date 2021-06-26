@@ -7,7 +7,7 @@ package go.servlet;
 
 import go.dao.ManageProductDao;
 import go.dao.ManageShopDao;
-import go.image.ImageHandler;
+import go.handler.ImageHandler;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -79,7 +79,7 @@ public class UpdateProductServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             } else {
-
+                
             }
         }
     }

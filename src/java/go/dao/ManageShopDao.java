@@ -22,7 +22,7 @@ import org.json.JSONObject;
  */
 public class ManageShopDao {
 
-    private static PreparedStatement ps, ps1, ps2, ps3, ps4, ps6, ps7 = null;
+    private static PreparedStatement ps, ps1, ps2, ps3, ps4, ps5, ps6, ps7 = null;
     private static Statement st;
 
     static {
@@ -33,6 +33,7 @@ public class ManageShopDao {
             st = DbConnection.getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps3 = DbConnection.getConnection().prepareStatement("update categories set shopname = ? where shopname = ?");
             ps4 = DbConnection.getConnection().prepareStatement("insert into categories values(?,?)");
+            ps5 = DbConnection.getConnection().prepareStatement("update products set category = ? where category = ?");
             ps6 = DbConnection.getConnection().prepareStatement("delete  from categories where category = ? and shopname = ?");
             ps7 = DbConnection.getConnection().prepareStatement("select * from categories order by category desc");
 
@@ -47,7 +48,6 @@ public class ManageShopDao {
         while (rs.next()) {
             json.put(rs.getString(1), rs.getString(2));
         }
-        System.out.println(json);
         return json;
     }
 
@@ -62,26 +62,23 @@ public class ManageShopDao {
     }
 
     public static JSONObject getShopCategories() throws SQLException, JSONException {
-        System.out.println("Inside getShopCategories");
         JSONObject json = new JSONObject();
         ResultSet rs = st.executeQuery("select * from categories");
         Iterator shops = getShops().keys();
         String shop = "";
         rs.next();
         while (shops.hasNext()) {
-            shop = (String)shops.next();
+            shop = (String) shops.next();
             JSONArray arr = new JSONArray();
-             do{
+            do {
                 if (rs.getString(2).equals(shop)) {
                     arr.put(rs.getString(1));
                 }
-            }while (rs.next());
+            } while (rs.next());
             json.put(shop, arr);
-            System.out.println(arr);
             rs.absolute(1);
         }
         rs.close();
-        System.out.println("");
         return json;
     }
 
@@ -123,7 +120,6 @@ public class ManageShopDao {
         int a = ps.executeUpdate();
         int b = ps3.executeUpdate();
         int c = ps1.executeUpdate();
-        System.out.println("results: " + a + " " + b + " " + c);
         if (a == 1 && b >= 0 && c == 1) {
             return true;
         } else {
@@ -157,6 +153,27 @@ public class ManageShopDao {
     }
 
     public static boolean updateShopCategory(ArrayList<String> dataList) throws SQLException {
+        ps4.setString(1, dataList.get(2));
+        ps4.setString(2, dataList.get(0));
+        int r1 = ps4.executeUpdate();
+        if (r1 == 1) {
+            System.out.println("Inserted");
+        }
+        ps5.setString(1, dataList.get(2));
+        ps5.setString(2, dataList.get(1));
+        int r2 = ps5.executeUpdate();
+        if (r2 == 1) {
+            System.out.println("Updated");
+        }
+        ps6.setString(1, dataList.get(1));
+        ps6.setString(2, dataList.get(0));
+        int r3 = ps6.executeUpdate();
+        if (r3 == 1) {
+            System.out.println("Deleted");
+        }
+        if (r1 > 0 && r2 >= 0 && r3 > 0) {
+            return true;
+        }
         return false;
     }
 }
